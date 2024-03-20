@@ -1,4 +1,4 @@
 import qrcode
-img = qrcode.make('https://www.youtube.com/')
+img = qrcode.make(input('Enter URL:'))
 type(img)  # qrcode.image.pil.PilImage
-img.save("some_file.png")
+img.save(input('Saving name(end .png): '))
