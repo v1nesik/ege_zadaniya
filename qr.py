@@ -1,13 +1,10 @@
 import qrcode
-# img = qrcode.make(input('Enter URL:'))
-# type(img)  # qrcode.image.pil.PilImage
-# img.save(input('Saving name(end .png): '))
 from tkinter import *
 from tkinter import ttk
 
 root = Tk()
 
-root.geometry('200x250')
+root.geometry('300x250')
 root.title('QRCode generation')
 root.resizable(False, False)
 
@@ -15,19 +12,25 @@ root.resizable(False, False)
 def generate():
     img = qrcode.make(entry.get())
     type(img)
-    img.save('LLLLLde.png')
+    img.save(entry_file.get())
 
 
 button = ttk.Button(root, text='Generate QR Code', command=generate)
 button.pack(side='bottom')
 
+label = ttk.Label(root, text='Enter URL')
+label.pack()
+
 entry = ttk.Entry(root, text='Enter URL')
 entry.pack()
 
-qrcode = PhotoImage(file='LLLLLde')
+label_file = ttk.Label(root, text='Enter File Name(.png)')
+label_file.pack()
 
-if generate == True:
-    label = ttk.Label(root, image=qrcode)
-    label.pack()
+entry_file = ttk.Entry(root, text='Enter File Name')
+entry_file.pack()
+
+label_help = ttk.Label(root, text='The file is saved in the directory where you ran the code')
+label_help.pack()
 
 root.mainloop()
