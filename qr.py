@@ -7,8 +7,7 @@ root = Tk()
 
 root.geometry('500x400')
 root.title('QRCode generation')
-root.resizable(False, False)
-
+root.resizable(False, False)              
 
 label = ttk.Label(root, text='Enter URL')
 label.pack()
@@ -22,7 +21,6 @@ label_file.pack()
 entry_file = ttk.Entry(root, text='Enter File Name')
 entry_file.pack()
 
-
 def generate():
     img = qrcode.make(entry.get())
     type(img)
@@ -31,7 +29,6 @@ def generate():
     panel = Label(image=img)
     panel.image = img
     panel.pack(side='bottom')
-
 
 button = ttk.Button(root, text='Generate QR Code', command=generate)
 button.pack(side='bottom')
